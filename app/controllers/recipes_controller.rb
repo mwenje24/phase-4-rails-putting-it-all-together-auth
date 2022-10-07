@@ -13,11 +13,7 @@ class RecipesController < ApplicationController
     end
 
     private
-
-    def deny_access(invalid)
-        render json: { errors: invalid.record.errors.full_messages }, status: :unauthorized
-    end
-
+    
     def render_unprocessable_entity_response(invalid)
         puts invalid.record.errors.full_messages
         render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
